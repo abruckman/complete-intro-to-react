@@ -1,7 +1,9 @@
 /* global React ReactDOM */
+import React from 'react'
+import React from 'react-dom'
+import MyTitle from './myTitle'
 
 var div = React.DOM.div
-var h1 = React.DOM.h1
 
 var myFirstComponent = React.createClass({
   render: function () {
@@ -16,13 +18,13 @@ var myFirstComponent = React.createClass({
   }
 })
 
-var MyTitle = React.createClass({
-  render: function () {
-    return (
-      div(null,
-        h1({style: {color: this.props.color}}, this.props.title)
-      )
-    )
-  }
-})
+// var MyTitle = React.createClass({
+//   render: function () {
+//     return (
+//       div(null,
+//         h1({style: {color: this.props.color}}, this.props.title)
+//       )
+//     )
+//   }
+// })
 ReactDOM.render(React.createElement(myFirstComponent), document.getElementById('app'))
