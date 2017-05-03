@@ -1,6 +1,6 @@
 /* global React ReactDOM */
 import React from 'react'
-import React from 'react-dom'
+import ReactDOM from 'react-dom'
 import MyTitle from './myTitle'
 
 var div = React.DOM.div
