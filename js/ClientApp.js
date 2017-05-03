@@ -8,12 +8,19 @@ var div = React.DOM.div
 var myFirstComponent = React.createClass({
   render: function () {
     return (
-      React.DOM.div(null,
-        React.createElement(MyTitle, { title: 'props are the best', 'color': 'peru'}),
-        React.createElement(MyTitle, { title: 'second thing', 'color': 'mediumaquamarine'}),
-        React.createElement(MyTitle, { title: 'third thing', 'color': 'tomato'}),
-        React.createElement(MyTitle, { title: 'last thing', 'color': 'rebeccapurple'})
-      )
+      <div>
+        <MyTitle title='props are the best' color= 'rebeccapurple' />
+        <MyTitle title='second thing' color= 'mediumaquamarine' />
+        <MyTitle title='third thing' color= 'tomato' />
+        <MyTitle title='last thing' color= 'peru' />
+
+      </div>
+      // React.DOM.div(null,
+      //   React.createElement(MyTitle, { title: 'props are the best', 'color': 'peru'}),
+      //   React.createElement(MyTitle, { title: 'second thing', 'color': 'mediumaquamarine'}),
+      //   React.createElement(MyTitle, { title: 'third thing', 'color': 'tomato'}),
+      //   React.createElement(MyTitle, { title: 'last thing', 'color': 'rebeccapurple'})
+      //)
     )
   }
 })
