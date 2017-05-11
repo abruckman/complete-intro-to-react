@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 // import preload from '../public/data.json'
 import ShowCard from './showCard'
 import Header from './header'
@@ -9,28 +10,17 @@ const Search = React.createClass({
     shows: arrayOf(shape({
       title: string,
       descriptions: string
-    }))
-  },
-  getInitialState () {
-    return {
-      searchTerm: ''
-    }
-  },
-  handleSearchTermChange (event) {
-    this.setState({searchTerm: event.target.value})
+    })),
+    searchTerm: string
   },
   render () {
     return (
       <div className='search'>
-        <Header
-          showSearch
-          searchTerm={this.state.searchTerm}
-          handleSearchTermChange={this.handleSearchTermChange}
-        />
+        <Header showSearch />
         <div>
           {this.props.shows
           .filter((show) => {
-            return `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0
+            return `${show.title} ${show.description}`.toUpperCase().indexOf(this.props.searchTerm.toUpperCase()) >= 0
           })
           .map((show) => {
             return (
@@ -43,4 +33,10 @@ const Search = React.createClass({
   }
 })
 
-export default Search
+const mapStateToProps = (state) => {
+  return {
+    searchTerm: state.searchTerm
+  }
+}
+
+export default connect(mapStateToProps)(Search)
