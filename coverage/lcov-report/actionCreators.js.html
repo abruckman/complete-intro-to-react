@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for showCard.js</title>
+    <title>Code coverage report for actionCreators.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="index.html">All files</a> showCard.js
+      <a href="index.html">All files</a> actionCreators.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">14.29% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>1/7</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">16.67% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>1/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">14.29% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>1/7</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -62,71 +62,44 @@
 17
 18
 19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+20</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react'
-const { string } = React.PropTypes
-import {Link} from 'react-router'
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { SET_SEARCH_TERM, ADD_OMDB_DATA } from './actions'
+import axios from 'axios'
 &nbsp;
-const ShowCard = React.createClass({
-  propTypes: {
-    poster: string,
-    title: string,
-    year: string,
-    description: string,
-    imdbID: string
-  },
-  render () {
-    const {poster, title, year, description, imdbID} = this.props
-    return (
-      &lt;Link to={`/details/${imdbID}`} &gt;
-        &lt;div className='show-card'&gt;
-          &lt;img src={`/public/img/posters/${poster}`} /&gt;
-          &lt;h3&gt;{title}&lt;/h3&gt;
-          &lt;h4&gt;({year})&lt;/h4&gt;
-          &lt;p&gt;{description}&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/Link&gt;
-    )
+export function setSearchTerm (searchTerm) {
+  return {type: SET_SEARCH_TERM, searchTerm: searchTerm}
+}
+&nbsp;
+export function <span class="fstat-no" title="function not covered" >addOMDBData </span>(imdbID, omdbData) {
+<span class="cstat-no" title="statement not covered" >  return { type: ADD_OMDB_DATA, imdbID, omdbData }</span>
+}
+&nbsp;
+export function <span class="fstat-no" title="function not covered" >getOMDBDetails </span>(imdbID) {
+<span class="cstat-no" title="statement not covered" >  return <span class="fstat-no" title="function not covered" >fu</span>nction (dispatch, getState) {</span>
+<span class="cstat-no" title="statement not covered" >    axios.get(`http://www.omdbapi.com/?i=${imdbID}`).then(<span class="fstat-no" title="function not covered" >(r</span>esponse) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      console.log(response.data)</span>
+<span class="cstat-no" title="statement not covered" >      dispatch(addOMDBData(imdbID, response.data))</span>
+    }).catch(<span class="fstat-no" title="function not covered" >(e</span>rror) =&gt; <span class="cstat-no" title="statement not covered" >console.error('axios error', error))</span>
   }
-})
-&nbsp;
-export default ShowCard
+}
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->

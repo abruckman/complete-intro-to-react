@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for showCard.js</title>
+    <title>Code coverage report for reducers.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="index.html">All files</a> showCard.js
+      <a href="index.html">All files</a> reducers.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>16/16</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>3/3</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>16/16</span>
       </div>
     </div>
   </div>
@@ -71,62 +71,77 @@
 26
 27
 28
-29</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+29
+30
+31
+32
+33
+34</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react'
-const { string } = React.PropTypes
-import {Link} from 'react-router'
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { SET_SEARCH_TERM, ADD_OMDB_DATA } from './actions'
 &nbsp;
-const ShowCard = React.createClass({
-  propTypes: {
-    poster: string,
-    title: string,
-    year: string,
-    description: string,
-    imdbID: string
-  },
-  render () {
-    const {poster, title, year, description, imdbID} = this.props
-    return (
-      &lt;Link to={`/details/${imdbID}`} &gt;
-        &lt;div className='show-card'&gt;
-          &lt;img src={`/public/img/posters/${poster}`} /&gt;
-          &lt;h3&gt;{title}&lt;/h3&gt;
-          &lt;h4&gt;({year})&lt;/h4&gt;
-          &lt;p&gt;{description}&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/Link&gt;
-    )
+const DEFAULT_STATE = {
+  searchTerm: '',
+  omdbData: {}
+}
+&nbsp;
+const setSearchTerm = (state, action) =&gt; {
+  const newState = {}
+  Object.assign(newState, state, {searchTerm: action.searchTerm})
+  return newState
+}
+&nbsp;
+const addOMDBData = (state, action) =&gt; {
+  const newOMDBData = {}
+  Object.assign(newOMDBData, state.omdbData, {[action.imdbID]: action.omdbData})
+  const newState = {}
+  Object.assign(newState, state, {omdbData: newOMDBData})
+  return newState
+}
+&nbsp;
+const rootReducer = (state = DEFAULT_STATE, action) =&gt; {
+  switch (action.type) {
+    case SET_SEARCH_TERM:
+      return setSearchTerm(state, action)
+    case ADD_OMDB_DATA:
+      return addOMDBData(state, action)
+    default:
+      return state
   }
-})
+}
 &nbsp;
-export default ShowCard
+export default rootReducer
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
