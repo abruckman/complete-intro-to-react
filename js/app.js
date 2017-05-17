@@ -6,8 +6,7 @@ import Landing from './landing'
 import Search from './search'
 import Details from './details'
 import preload from '../public/data.json'
-import '../public/normalize.css'
-import '../public/style.css'
+
 
 const App = () => {
   return (
